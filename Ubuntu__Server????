@@ -8,6 +8,21 @@ sudo ufw status
 sudo ufw enable
 sudo ufw status
 
+$ sudo systemctl status apache2
+$ hostname -I
+
+then open in browser: http://server_ip
+
+Ahora si lo dificil>
+Step 6: Manage the Apache daemon
+You can manage the Apache web server daemon or service with “systemctl”.
+$ sudo systemctl start apache2
+$ sudo systemctl stop apache2
+$ sudo systemctl restart apache2
+$ sudo systemctl reload apache2
+$ sudo systemctl disable apache2
+$ sudo systemctl enable apache2
+
 
 ls ##para ver en que carpeta estamos
 mkdir -p ~/Documents  ##para crear un directory
