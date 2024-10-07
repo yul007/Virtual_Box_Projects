@@ -1,0 +1,29 @@
+$ sudo apt update
+$ sudo apt install apache2
+$ sudo ufw app list
+
+$ sudo ufw allow 'Apache'
+sudo ufw allow 9000
+sudo ufw status
+sudo ufw enable
+sudo ufw status
+
+
+ls ##para ver en que carpeta estamos
+mkdir -p ~/Documents  ##para crear un directory
+mkdir -p ~/Documents/my_website  ##para crear my_website folder en el directory Documents
+
+cd ~/Documents/my_website
+ls #no va a haber nada porque no hay nada jaja
+
+dentro de esa carpeta pon: le puedes quitar el --bind para que se ponga en el default que es 000000
+python3 -m http/server --bind 128.0.1 9000
+
+luego puedes entrar a la pagina## http://127.0.0.1:9000/
+
+aqui se supone que te debe mostrar los files y directories que tienes pero como lo pusimos adentro de un empty folder. te va a salir blanco
+si quieres crea estas dos carpetas y podra ver que hay adentro
+mkdir -p ~/Documents/my_website/test1
+mkdir -p ~/Documents/my_website/test2
+
+para cerrar el hsoting pon ctrl + c
