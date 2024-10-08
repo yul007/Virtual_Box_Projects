@@ -1,3 +1,23 @@
+Con ayuda de: 
+https://www.ionos.com/digitalguide/server/configuration/install-apache-on-ubuntu/
+https://ubuntu.com/tutorials/install-and-configure-apache#5-activating-virtualhost-file
+chatgpt
+
+Access the Test Page: You can create and access the test page by following the first set of instructions.
+Set Up Virtual Hosts: If you're planning to host multiple websites, set up virtual hosts by following the virtual host instructions.
+Secure Your Web Server: Once your website is running, securing it with SSL/TLS using Let's Encrypt is the next step.
+
+Expasion> https://www.linuxfordevices.com/tutorials/ubuntu/install-web-server-host-website-linux
+
+Development Stacks on Ubuntu:
+LAMP/LEMP: If you are looking for something classic, simple to use, and widely supported (especially for PHP-based projects like WordPress).
+MEAN/MERN: If you're more comfortable with JavaScript or if you're building modern web applications or SPAs.
+JAMstack: If you want a super-fast, secure, and scalable site, especially for static or content-focused websites.
+
+<<<DNS STEPS>>>
+sudo ufw allow 'Apache Full'
+sudo certbot --apache
+----------------------------------------------------------------------------------------------------------------------------------------------------
 $ sudo apt update
 $ sudo apt install apache2
 $ sudo ufw app list
