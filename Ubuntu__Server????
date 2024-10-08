@@ -24,21 +24,60 @@ $ sudo systemctl disable apache2
 $ sudo systemctl enable apache2
 
 
-ls ##para ver en que carpeta estamos
-mkdir -p ~/Documents  ##para crear un directory
-mkdir -p ~/Documents/my_website  ##para crear my_website folder en el directory Documents
+$ sudo mkdir /var/www/your_domain
+$ sudo nano /var/www/your_domain/index.html
+<html>
+    <head>
+        <title>Welcome to your_domain!</title>
+    </head>
+    <body>
+        <h1>Here you can see that your_domain virtual host is successfully working!</h1>
+    </body>
+</html>
 
-cd ~/Documents/my_website
-ls #no va a haber nada porque no hay nada jaja
+sudo systemctl reload apache2
+sudo systemctl status apache2 (it has to say active and running)
+sudo systemctl start apache2
+systemctl daemon-reload
+sudo systemctl start apache2
+sudo systemctl enable apache2 (aqui te deberian salir coasas)
+sudo nano /var/www/minijarvis/index.html
+/etc apache2/sites-available/minijarvis/conf
 
-dentro de esa carpeta pon: le puedes quitar el --bind para que se ponga en el default que es 000000
-python3 -m http/server --bind 128.0.1 9000
+in a new one?>
+cd /var/www/minijarvis/
+ls (te deberia salir solo el index.html)
+nano indexx.html (aqui no se porque cree otra carpeta)
+cd /etc/apache2/sites-available/
+sudo cp 000-default.conf minijarvis.conf
+sudo nano minijarvis.conf (te debe salir systemctl reload apache2)
+systemctl reload apache2
+sudo a2ensite minijarvis.conf
+sudo ufw allow 'Apache Full'
+sudo a2dissite 000-default.conf (te dira qu actives con systemctl reload apache2)
+systemctl reload apache2
 
-luego puedes entrar a la pagina## http://127.0.0.1:9000/
 
-aqui se supone que te debe mostrar los files y directories que tienes pero como lo pusimos adentro de un empty folder. te va a salir blanco
-si quieres crea estas dos carpetas y podra ver que hay adentro
-mkdir -p ~/Documents/my_website/test1
-mkdir -p ~/Documents/my_website/test2
 
-para cerrar el hsoting pon ctrl + c
+
+
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2
+sudo ufw allow 'Apache Full'
+sudo nano /etc/apache2/sites-available/minijarvis.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@minijarvis.com
+    ServerName minijarvis.com
+    ServerAlias www.minijarvis.com
+    DocumentRoot /var/www/minijarvis
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+sudo a2dissite 000-defaul.conf (te debe salir que ya estuvo disabled)
+sudo systemctl restart apache2
+sudo nano /etc/hosts
+sudo nano /etc/hosts (Add the following line to map the domain to your local IP):
+127.0.0.1 minijarvis.com
